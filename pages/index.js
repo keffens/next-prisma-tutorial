@@ -4,7 +4,7 @@ function CourseComponent({ course }) {
   return (
     <div>
       <h2>{course.title}</h2>
-      <ul>
+      <ul className="list-disc list-inside">
         {course.lessons.map((lesson) => (
           <li key={lesson.id}>{lesson.title}</li>
         ))}
@@ -15,13 +15,15 @@ function CourseComponent({ course }) {
 
 export default function Homepage({ courses }) {
   return (
-    <div>
-      <h1>Courses</h1>
-      {courses.map((course) => (
-        <CourseComponent key={course.id} course={course} />
-      ))}
-      {/* <pre>{JSON.stringify(courses, null, 2)}</pre> */}
-    </div>
+    <main className="min-h-screen bg-gray-100">
+      <div className="container mx-auto p-8">
+        <h1>Courses</h1>
+        {courses.map((course) => (
+          <CourseComponent key={course.id} course={course} />
+        ))}
+        {/* <pre>{JSON.stringify(courses, null, 2)}</pre> */}
+      </div>
+    </main>
   );
 }
 
